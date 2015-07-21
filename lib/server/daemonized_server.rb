@@ -13,6 +13,7 @@ class Server
     @options[:pidfile] = File.expand_path(pidfile) if pidfile?
   end
 
+  # run server using options
   def run!
     check_pid
     daemonize if daemonize?
@@ -33,6 +34,7 @@ class Server
   end
 
 private
+  #Option-free server method
   def run_server
     @server = TCPServer.new('localhost', 2345)
     while !@quit
@@ -57,7 +59,8 @@ private
       socket.close
     end
   end
-
+  
+  
   def daemonize?
     @options[:daemonize]
   end
@@ -78,10 +81,15 @@ private
     !pidfile.nil?
   end
 
+  #Method that allows daemonization
   def daemonize
+    #Forks and exits out of parent process 
     exit if fork
+    #Sets process as session and group leader
     Process.setsid
+    #Forks and exits out of process again to isolate new process from terminal
     exit if fork
+    #Change directory of daemon process to root so isn't affected by directories getting deleted
     Dir.chdir '/'
   end
 
@@ -92,13 +100,19 @@ private
         #Write pid to pidfile 
         File.open(pidfile, File::WRONLY|File::CREAT|File::EXCL) { |f| f.write("#{Process.pid}") }
         at_exit { File.delete(pidfile) if File.exists?(pidfile) }
+        
       rescue Errno::EEXIST
+        #If pidfile already exists run check_pid
+        #Will delete if exists
+        #Retry write_pid
         check_pid
         retry
       end
     end
   end
 
+  #Check pidfile to see if server is already running
+  #Or if pidfile exists even though server is not running
   def check_pid
     if pidfile?
       case pid_status(pidfile)        
@@ -111,6 +125,7 @@ private
     end
   end
 
+  #Check status of pidfile
   def pid_status(pidfile)
     begin
       return :exited unless File.exists?(pidfile)
@@ -125,6 +140,7 @@ private
     end
   end
 
+  #Trap :QUIT Signal to cleanly exit server
   def trap_signals
     trap(:QUIT) do
 
@@ -132,6 +148,7 @@ private
     end
   end
 
+  #Change stdout and stderr to logfile
   def redirect_output
     FileUtils.mkdir_p(File.dirname(logfile))
     FileUtils.touch logfile
@@ -140,7 +157,9 @@ private
     $stdout = $stderr
     $stdout.sync = $stderr.sync = true
   end
-
+  
+  #option to supress output completely
+  #by redirecting stdout and stderr to null
   def suppress_output
     $stderr.reopen('/dev/null', 'a')
     $stdout.reopen($stderr)
