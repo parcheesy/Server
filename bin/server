@@ -3,7 +3,49 @@
 lib = File.expand_path('../../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
+require'optparse'
+
+options = {}
+version = "1.0.0"
+daemonize_desc = "run daemonized process {default: false}"
+pidfile_desc = "set pidfile name"
+logfile_desc = "set logfile name"
+include_desc = "add to load path"
+debug_desc = "set $DEBUG to true"
+warn_help = "enable warnings"
+
+optsparser = OptionParser.new do |opts|
+
+  opts.banner = "A daemonized server."
+  opts.separator ""
+  opts.separator "Usage: sever [options]"
+  opts.separator ""
+
+  opts.separator "Process options:"
+
+  options[:daemonize] = false
+  opts.on('-d', '--daemonize', daemonize_desc) { options[:daemonize] = true }
+
+  options[:pidfile] = "pidfile"
+  opts.on('-p', '--pid PIDFILE', pidfile_desc) { |filename| options[:pidfile] = filename }
+
+  options[:logfile] = "logfile"
+  opts.on('-l', '--log LOGFILE', logfile_desc) { |filename| options[:logfile] = filename }
+
+  opts.separator "Ruby options:"
+  opts.on('-I', '--include PATH', include_desc) { |path| $LOAD_PATH.unshift(*value.split(":").map{|v| File.expand_path(v)})   } 
+
+  opts.separator "Common options:"
+
+  opts.on('-h', '--help') { puts opts; exit }
+  opts.on('-v', '--version') { puts version; exit }
+  opts.separator ""
+
+end
+
+optsparser.parse!
+
 require 'server'
 
-server = Server.new
-server.run!("../data")
+server = Server.new(options)
+server.run!
