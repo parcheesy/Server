@@ -12,8 +12,9 @@ module Server
   
     # Define map from extensions to content type
     CONTENT_TYPE_MAPPING = {
-      html: 'text/html',
-      js: 'appplication/javascript',
+     html: 'text/html',
+       js: 'application/javascript',
+     json: 'application/json',
       css: 'text/css',
       txt: 'text/plain',
       png: 'image/png',
@@ -48,7 +49,7 @@ module Server
       uri = URI(request_uri)
       path = uri.path
       query = uri.query
-      parameters = parse_query(query) if query
+      parameters = parse_query(query)
 
       clean = []
 
@@ -62,7 +63,7 @@ module Server
       if path.include? "."
         return File.join(WEB_ROOT, *clean), nil 
       else
-        return File.join(*clean), parameters
+        return File.join("/", *clean), parameters
       end
 
     end
@@ -98,7 +99,7 @@ module Server
 
       if code = @routes[path]
         response = eval(code) 
-        return response
+        return create_response(response)
       elsif response = @server_files[path]
         return response
       else
@@ -152,6 +153,7 @@ module Server
     end
 
     def parse_query(query)
+      return {} unless query
       queries = query.split("&")
       queries = queries.map {|query| query.split("=")}
       parameters = {}
@@ -179,6 +181,24 @@ module Server
         controllers[name.to_sym] = Object.const_get(name).new
       end
       return controllers
+    end
+
+    def create_response(body)
+      body = body.to_s
+      if body.include? "html"
+        type = "text/html"
+      else
+        type = "application/json"
+      end
+      response =   "HTTP/1.1 200 OK\r\n" +
+                   "Content-Type: #{type}\r\n" +
+                   "Content-Length: #{body.size}\r\n" +
+                   "Connection: close\r\n" +
+                   "\r\n" +
+                   body +
+                   "\r\n"
+
+      return response
     end
 
 

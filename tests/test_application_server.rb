@@ -23,10 +23,13 @@ class TestApplicationServer < Test::Unit::TestCase
 
     uri = URI('http://localhost:2345/test.html')
     req = URI_request(uri)
+    uri2 = URI('http://localhost:2345/test')
+    req2 = URI_request(uri2)
     pid = File.read("pidfile").to_i
     Process.kill("QUIT", pid)
     URI_request(uri)
     assert req.is_a?(Net::HTTPSuccess)
+    assert req2.is_a?(Net::HTTPSuccess)
   end
 
   def test_controller_loading

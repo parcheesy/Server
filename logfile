@@ -1,27 +1,15 @@
 GET / HTTP/1.1
-/Users/Praveen/Desktop/projects/ruby/server/lib/server/application_server.rb:97:in `path_options': undefined method `[]' for #<Server::Routes:0x007ff93400ccf8> (NoMethodError)
-	from /Users/Praveen/Desktop/projects/ruby/server/lib/server/application_server.rb:83:in `run_server'
-	from /Users/Praveen/Desktop/projects/ruby/server/lib/server/daemonized_server.rb:31:in `run!'
-	from ./bin/server:51:in `<main>'
-GET /test.html HTTP/1.1
-GET /test.html HTTP/1.1
+GET /test HTTP/1.1
+GET /test HTTP/1.1
 Shutting down server.
-GET /test.html HTTP/1.1
-GET /test.html HTTP/1.1
+GET / HTTP/1.1
 Shutting down server.
-GET /test.html HTTP/1.1
-GET /test.html HTTP/1.1
+GET / HTTP/1.1
 Shutting down server.
-GET /test.html HTTP/1.1
-GET /test.html HTTP/1.1
+GET / HTTP/1.1
+GET / HTTP/1.1
 Shutting down server.
-can't connect
-GET /test.html HTTP/1.1
-GET /test.html HTTP/1.1
+GET / HTTP/1.1
 Shutting down server.
-GET /test.html HTTP/1.1
-GET /test.html HTTP/1.1
-Shutting down server.
-GET /test.html HTTP/1.1
-GET /test.html HTTP/1.1
+GET / HTTP/1.1
 Shutting down server.

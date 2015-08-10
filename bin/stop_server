@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require 'open-uri'
+
+lib = File.expand_path('../..', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+pid = File.read("./pidfile")
+Process.kill(:QUIT, pid.to_i)
+open("http://localhost:2345/index.html")
+

@@ -17,6 +17,8 @@ module Server
   
     # run server using options
     def run!
+      puts "Starting server..."
+      puts "Run 'stop_server' command to shut down server."
       check_pid
       daemonize if daemonize?
       write_pid
@@ -32,7 +34,7 @@ module Server
   
       puts "Shutting down server."
       $stdout = STDOUT
-      puts "Shutting down server.\r\n"
+      puts "Shutting down server."
     end
   
   private

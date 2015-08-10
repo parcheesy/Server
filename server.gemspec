@@ -11,8 +11,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://domain.com/"
   spec.license       = "MIT"
 
-  spec.files         = ['lib/server.rb']
-  spec.executables   = ['bin/server']
-  spec.test_files    = ['tests/test_server.rb']
+  spec.files         = Dir["{lib}/**/*.rb"]
+  spec.executables   = ['server','stop_server']
   spec.require_paths = ['lib'] 
 end
