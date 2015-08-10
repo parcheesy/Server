@@ -1,153 +1,27 @@
 GET / HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET /testingtesting123 HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET / HTTP/1.1
+/Users/Praveen/Desktop/projects/ruby/server/lib/server/application_server.rb:97:in `path_options': undefined method `[]' for #<Server::Routes:0x007ff93400ccf8> (NoMethodError)
+	from /Users/Praveen/Desktop/projects/ruby/server/lib/server/application_server.rb:83:in `run_server'
+	from /Users/Praveen/Desktop/projects/ruby/server/lib/server/daemonized_server.rb:31:in `run!'
+	from ./bin/server:51:in `<main>'
+GET /test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Shutting down server.
-GET / HTTP/1.1
+GET /test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Shutting down server.
-GET / HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET / HTTP/1.1
+GET /test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Shutting down server.
-GET / HTTP/1.1
+GET /test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Shutting down server.
-/Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:158:in `rescue in rbuf_fill': Net::ReadTimeout (Net::ReadTimeout)
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:152:in `rbuf_fill'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:134:in `readuntil'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:144:in `readline'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http/response.rb:39:in `read_status_line'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http/response.rb:28:in `read_new'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1414:in `block in transport_request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1411:in `catch'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1411:in `transport_request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1384:in `request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1285:in `request_get'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:480:in `block in get_response'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:853:in `start'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:583:in `start'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:478:in `get_response'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:455:in `get'
-	from tests/test_daemonized_server.rb:15:in `block in test_daemonized_server'
-	from tests/test_daemonized_server.rb:12:in `fork'
-	from tests/test_daemonized_server.rb:12:in `test_daemonized_server'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testcase.rb:718:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testcase.rb:458:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:124:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:53:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:124:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:53:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:65:in `run_suite'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:44:in `block in run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:100:in `with_listener'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:40:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunner.rb:40:in `start_mediator'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunner.rb:25:in `start'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnerutilities.rb:24:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:411:in `block in run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:467:in `change_work_directory'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:410:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:59:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit.rb:502:in `block (2 levels) in <top (required)>'
-GET / HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET / HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET / HTTP/1.1
+can't connect
+GET /test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Shutting down server.
-/Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:158:in `rescue in rbuf_fill': Net::ReadTimeout (Net::ReadTimeout)
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:152:in `rbuf_fill'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:134:in `readuntil'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:144:in `readline'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http/response.rb:39:in `read_status_line'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http/response.rb:28:in `read_new'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1414:in `block in transport_request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1411:in `catch'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1411:in `transport_request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1384:in `request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1285:in `request_get'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:480:in `block in get_response'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:853:in `start'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:583:in `start'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:478:in `get_response'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:455:in `get'
-	from tests/test_daemonized_server.rb:15:in `block in test_daemonized_server'
-	from tests/test_daemonized_server.rb:12:in `fork'
-	from tests/test_daemonized_server.rb:12:in `test_daemonized_server'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testcase.rb:718:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testcase.rb:458:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:124:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:53:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:124:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:53:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:65:in `run_suite'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:44:in `block in run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:100:in `with_listener'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:40:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunner.rb:40:in `start_mediator'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunner.rb:25:in `start'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnerutilities.rb:24:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:411:in `block in run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:467:in `change_work_directory'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:410:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:59:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit.rb:502:in `block (2 levels) in <top (required)>'
-GET / HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET / HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET / HTTP/1.1
+GET /test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Shutting down server.
-GET /favicon.ico HTTP/1.1
-Shutting down server.
-GET / HTTP/1.1
-GET /favicon.ico HTTP/1.1
-GET / HTTP/1.1
-Shutting down server.
-/Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:153:in `read_nonblock': Connection reset by peer (Errno::ECONNRESET)
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:153:in `rbuf_fill'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:134:in `readuntil'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/protocol.rb:144:in `readline'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http/response.rb:39:in `read_status_line'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http/response.rb:28:in `read_new'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1414:in `block in transport_request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1411:in `catch'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1411:in `transport_request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1384:in `request'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:1285:in `request_get'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:480:in `block in get_response'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:853:in `start'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:583:in `start'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:478:in `get_response'
-	from /Users/Praveen/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/net/http.rb:455:in `get'
-	from tests/test_daemonized_server.rb:14:in `block in test_daemonized_server'
-	from tests/test_daemonized_server.rb:11:in `fork'
-	from tests/test_daemonized_server.rb:11:in `test_daemonized_server'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testcase.rb:718:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testcase.rb:458:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:124:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:53:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:124:in `run_test'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/testsuite.rb:53:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:65:in `run_suite'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:44:in `block in run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:100:in `with_listener'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnermediator.rb:40:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunner.rb:40:in `start_mediator'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunner.rb:25:in `start'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/ui/testrunnerutilities.rb:24:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:411:in `block in run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:467:in `change_work_directory'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:410:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit/autorunner.rb:59:in `run'
-	from /Users/Praveen/.rvm/gems/ruby-2.2.1@rails410/gems/test-unit-3.1.2/lib/test/unit.rb:502:in `block (2 levels) in <top (required)>'
-GET / HTTP/1.1
-GET /testing HTTP/1.1
-GET / HTTP/1.1
-GET /testing HTTP/1.1
-GET /terminating HTTP/1.1
-Shutting down server.
-GET / HTTP/1.1
-GET /testing HTTP/1.1
-GET /terminating HTTP/1.1
+GET /test.html HTTP/1.1
+GET /test.html HTTP/1.1
 Shutting down server.

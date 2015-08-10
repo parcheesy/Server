@@ -47,5 +47,5 @@ optsparser.parse!
 
 require 'server'
 
-server = Server.new(options)
+server = Server::ApplicationServer.new(options)
 server.run!
