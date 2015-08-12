@@ -1,10 +1,48 @@
 #!/usr/bin/env ruby
 require 'open-uri'
+require'optparse'
 
 lib = File.expand_path('../..', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-pid = File.read("./pidfile")
+
+options = {}
+version = "1.0.0"
+pidfile_desc = "set pidfile name, default is pidfile"
+port_desc = "set port number, default is 2345"
+include_desc = "add to load path"
+
+
+optsparser = OptionParser.new do |opts|
+
+  opts.banner = "Stop server."
+  opts.separator ""
+  opts.separator "Usage: stop_server [options]"
+  opts.separator ""
+
+  opts.separator "Process options:"
+
+  options[:pidfile] = "pidfile"
+  opts.on('-i', '--id PIDFILE', pidfile_desc) { |filename| options[:pidfile] = filename }
+
+  options[:port] = "2345"
+  opts.on('-p', '--port PORT', port_desc) { |port| options[:port] = port }
+
+  opts.separator "Ruby options:"
+  opts.on('-I', '--include PATH', include_desc) { |path| $LOAD_PATH.unshift(*value.split(":").map{|v| File.expand_path(v)})   } 
+
+  opts.separator "Common options:"
+
+  opts.on('-h', '--help') { puts opts; exit }
+  opts.on('-v', '--version') { puts version; exit }
+  opts.separator ""
+
+end
+
+optsparser.parse!
+
+
+pid = File.read("./#{options[:pidfile]}")
 Process.kill(:QUIT, pid.to_i)
-open("http://localhost:2345/index.html")
+open("http://localhost:#{options[:port]}/index.html")
 

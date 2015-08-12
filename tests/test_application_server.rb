@@ -17,7 +17,7 @@ class TestApplicationServer < Test::Unit::TestCase
 
   def test_application_server
     Thread.new {
-      server = Server::ApplicationServer.new({logfile: "logfile", pidfile: "pidfile"})
+      server = Server::ApplicationServer.new({logfile: "logfile", pidfile: "pidfile", port: "2345"})
       server.run!
     }
 

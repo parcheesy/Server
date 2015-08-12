@@ -30,7 +30,7 @@ module Server
         suppress_output
       end
   
-      run_server(2345)
+      run_server(port_num)
   
       puts "Shutting down server."
       $stdout = STDOUT
@@ -75,6 +75,10 @@ module Server
   
     def pidfile
       @options[:pidfile]
+    end
+
+    def port_num
+      @options[:port].to_i
     end
   
     def logfile?

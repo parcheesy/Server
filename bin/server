@@ -10,6 +10,7 @@ version = "1.0.0"
 daemonize_desc = "run daemonized process {default: false}"
 pidfile_desc = "set pidfile name"
 logfile_desc = "set logfile name"
+port_desc = "set port number, default is 2345"
 include_desc = "add to load path"
 debug_desc = "set $DEBUG to true"
 warn_help = "enable warnings"
@@ -18,7 +19,7 @@ optsparser = OptionParser.new do |opts|
 
   opts.banner = "A daemonized server."
   opts.separator ""
-  opts.separator "Usage: sever [options]"
+  opts.separator "Usage: server [options]"
   opts.separator ""
 
   opts.separator "Process options:"
@@ -27,10 +28,13 @@ optsparser = OptionParser.new do |opts|
   opts.on('-d', '--daemonize', daemonize_desc) { options[:daemonize] = true }
 
   options[:pidfile] = "pidfile"
-  opts.on('-p', '--pid PIDFILE', pidfile_desc) { |filename| options[:pidfile] = filename }
+  opts.on('-i', '--id PIDFILE', pidfile_desc) { |filename| options[:pidfile] = filename }
 
   options[:logfile] = "logfile"
   opts.on('-l', '--log LOGFILE', logfile_desc) { |filename| options[:logfile] = filename }
+
+  options[:port] = "2345"
+  opts.on('-p', '--port PORT', port_desc) { |port| options[:port] = port }
 
   opts.separator "Ruby options:"
   opts.on('-I', '--include PATH', include_desc) { |path| $LOAD_PATH.unshift(*value.split(":").map{|v| File.expand_path(v)})   } 
