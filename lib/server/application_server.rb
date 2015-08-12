@@ -73,22 +73,26 @@ module Server
 
       server = TCPServer.new('localhost', port)
       while !@quit
-        socket = server.accept
-        request = socket.gets
+        Thread.start(server.accept) do |socket|
+          request = socket.gets
 
-        $stderr.puts request
-        
-       
-        # Retrieve file path from http request
-        path, parameters = requested_path(request)
-        # Retrieve proper response from server_files hash based on path
-        
-        response = path_options(path, parameters)
+          $stderr.puts request
+          
+          if request       
+            # Retrieve file path from http request
+            path, parameters = requested_path(request)
+            # Retrieve proper response from server_files hash based on path
+            
+            response = path_options(path, parameters)
 
 
-        socket.print response
+            socket.print response
+          end
+          
+          socket.close
 
-        socket.close
+        end
+
       end
 
     end
