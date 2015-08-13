@@ -10,6 +10,7 @@ options = {}
 version = "1.0.0"
 pidfile_desc = "set pidfile name, default is pidfile"
 port_desc = "set port number, default is 2345"
+env_desc = "set environment: production or development. Default is development"
 include_desc = "add to load path"
 
 
@@ -28,6 +29,9 @@ optsparser = OptionParser.new do |opts|
   options[:port] = "2345"
   opts.on('-p', '--port PORT', port_desc) { |port| options[:port] = port }
 
+  options[:environment] = "development"
+  opts.on('-e', '--environment ENVIRONMENT', env_desc) { |env| options[:environment] = env }
+
   opts.separator "Ruby options:"
   opts.on('-I', '--include PATH', include_desc) { |path| $LOAD_PATH.unshift(*value.split(":").map{|v| File.expand_path(v)})   } 
 
@@ -44,5 +48,8 @@ optsparser.parse!
 
 pid = File.read("./#{options[:pidfile]}")
 Process.kill(:QUIT, pid.to_i)
-open("http://localhost:#{options[:port]}/index.html")
-
+if options[:environment] == "production"
+  open("http://127.0.0.1:#{options[:port]}/index.html")
+else
+ open("http://localhost:#{options[:port]}/index.html")
+end

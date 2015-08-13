@@ -71,7 +71,7 @@ module Server
     # Run application server
     def run_server(port)
 
-      server = TCPServer.new('localhost', port)
+      server = TCPServer.new(host, port)
       while !@quit
         Thread.start(server.accept) do |socket|
           request = socket.gets

@@ -40,7 +40,7 @@ module Server
   private
     #Option-free server method
     def run_server(port)
-      @server = TCPServer.new('localhost', port)
+      @server = TCPServer.new(host, port)
       while !@quit
         socket = @server.accept
   
@@ -79,6 +79,15 @@ module Server
 
     def port_num
       @options[:port].to_i
+    end
+
+    def host
+      env = @options[:environment]
+      if env=="production"
+        return "127.0.0.1"
+      else
+        return "localhost"
+      end
     end
   
     def logfile?
