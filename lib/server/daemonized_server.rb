@@ -84,7 +84,7 @@ module Server
     def host
       env = @options[:environment]
       if env=="production"
-        return "127.0.0.1"
+        return "0.0.0.0"
       else
         return "localhost"
       end
